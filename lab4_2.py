@@ -6,7 +6,7 @@ def decorator(function):
         elif kkk == 0:
             print("нет(")
         else:
-            print(a)
+            print(len(a))
     return wrapper
 
 @decorator
