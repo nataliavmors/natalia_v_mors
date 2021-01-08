@@ -1,14 +1,9 @@
 def swap(function):
-    def wrapper(x, y, show):
-        x, y = y, x
+    def wrapper(*args, show):
+        args=args[::-1]
         if show:
-            show = False
-        else:
-            show = True
-        res = x / y
-        if show:
-            print(res)
-        return res
+            print(function(*args))
+        return function(*args)
     return wrapper
 
 
@@ -20,4 +15,4 @@ def div(x, y, show=False):
     return res
 
 
-print(div(2, 4, show=True))
+div(2, 4, show=True)
