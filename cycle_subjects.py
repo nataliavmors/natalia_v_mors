@@ -50,16 +50,16 @@ class SubjectCycle(Subject):
 
 
 def InputSubjects():
-    print('введите названия предметов')
+    print('Введите названия предметов')
     s_name=input().split()
     #print('введите код метода расчета средних ')
     #s_grade_sys=input().split()
     s_marks=[]
     s_lecturers=[]
-    print('введите оценки')
+    print('Введите оценки')
     for i in range(len(s_name)):
         s_marks.append(input().split())
-    print('введите имена лекторов')
+    print('Введите имена лекторов')
     for i in range(len(s_name)):
         s_lecturers.append(input().split())
     subjcts=[]
@@ -71,24 +71,25 @@ def InputSubjects():
 
 def InputCycleSubjects():
 
-    print('введите названия циклов предметов')
+    print('Введите названия циклов предметов')
     s_name=input().split()
-    print('введите код метода расчета средних ')
+    print('Введите код метода расчета средних (1-среднее арифметическое, 2-среднее гармоническое, 3-среднее медианное')
     s_grade_sys=input().split()
     s_marks=[]
     s_lecturers=[]
-    print('введите оценки предметов циклов')
+    print('Введите оценки предметов циклов')
     for i in range(len(s_name)):
         s_marks.append(input().split())
-    print('введите имена лекторов предметов циклов')
+    print('Введите имена лекторов предметов циклов (НЕ ОБЯЗАТЕЛЬНО)')
     for i in range(len(s_name)):
         s_lecturers.append(input().split())
     cycle_subjcts=[]
     for i in range(len(s_name)):
         cycle_subjcts.append([])
     for i in range(len(s_name)):
+        print('Ввод предметов для цикла ' + s_name[i])
         sub = InputSubjects()
-        cycle_subjcts[i]=Subject(s_name[i],s_marks[i],s_grade_sys[i],sub,s_lecturers[i])
+        cycle_subjcts[i]=SubjectCycle(s_name[i],s_marks[i],s_grade_sys[i],sub,s_lecturers[i])
     return cycle_subjcts
 
 print(InputCycleSubjects())
